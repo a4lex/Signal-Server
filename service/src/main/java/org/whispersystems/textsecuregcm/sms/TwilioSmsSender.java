@@ -101,6 +101,8 @@ public class TwilioSmsSender {
     Map<String, String> requestParameters = new HashMap<>();
     requestParameters.put("To", destination);
 
+    logger.info("4LEX OTP is :" + verificationCode);
+
     if (Util.isEmpty(messagingServicesId)) {
       requestParameters.put("From", getRandom(random, numbers));
     } else {

@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyPair;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -61,7 +62,7 @@ public class CanonicalRequestSigner {
 
   private static PrivateKey initializeRsaSigningKey(String rsaSigningKey) throws IOException, InvalidKeyException {
     final PEMReader pemReader          = new PEMReader(new StringReader(rsaSigningKey));
-    final PrivateKey key               = (PrivateKey) pemReader.readObject();
+    final PrivateKey key               = ((KeyPair) pemReader.readObject()).getPrivate();
     testKeyIsValidForSigning(key);
     return key;
   }
