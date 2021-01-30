@@ -33,10 +33,14 @@ import io.dropwizard.client.JerseyClientConfiguration;
 /** @noinspection MismatchedQueryAndUpdateOfCollection, WeakerAccess */
 public class WhisperServerConfiguration extends Configuration {
 
-  @NotNull
   @Valid
   @JsonProperty
   private TwilioConfiguration twilio;
+
+  @NotNull
+  @Valid
+  @JsonProperty
+  private OwnSmsSenderConfiguration ownsmssender;
 
   @NotNull
   @Valid
@@ -194,6 +198,10 @@ public class WhisperServerConfiguration extends Configuration {
 
   public TwilioConfiguration getTwilioConfiguration() {
     return twilio;
+  }
+
+  public OwnSmsSenderConfiguration getOwnSmsSenderConfiguration() {
+    return ownsmssender;
   }
 
   public PushConfiguration getPushConfiguration() {

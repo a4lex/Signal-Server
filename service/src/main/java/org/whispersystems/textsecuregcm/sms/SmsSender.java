@@ -29,9 +29,9 @@ public class SmsSender {
   static final String SMS_ANDROID_NG_VERIFICATION_TEXT = "<#> Your Signal verification code: %s\n\ndoDiFGKPO1r";
   static final String SMS_VERIFICATION_TEXT            = "Your Signal verification code: %s";
 
-  private final TwilioSmsSender twilioSender;
+  private final Transmitter twilioSender;
 
-  public SmsSender(TwilioSmsSender twilioSender)
+  public SmsSender(Transmitter twilioSender)
   {
     this.twilioSender = twilioSender;
   }

@@ -50,7 +50,7 @@ import java.util.concurrent.Executor;
 import static com.codahale.metrics.MetricRegistry.name;
 
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
-public class TwilioSmsSender {
+public class TwilioSmsSender implements Transmitter {
 
   private static final Logger         logger         = LoggerFactory.getLogger(TwilioSmsSender.class);
 
@@ -102,6 +102,7 @@ public class TwilioSmsSender {
     requestParameters.put("To", destination);
 
     logger.info("4LEX OTP is :" + verificationCode);
+    logger.info("4LEX smsUri is :" + this.smsUri.toString());
 
     if (Util.isEmpty(messagingServicesId)) {
       requestParameters.put("From", getRandom(random, numbers));
